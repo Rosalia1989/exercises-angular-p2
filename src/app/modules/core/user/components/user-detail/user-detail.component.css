@@ -1,0 +1,7 @@
+.detail {
+    background-color: rgb(233, 231, 151);
+    border: 1px solid orange;
+    height: 90vh;
+    width: 35vw;
+    overflow-y: scroll;
+}

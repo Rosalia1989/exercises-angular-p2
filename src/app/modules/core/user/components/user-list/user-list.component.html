@@ -1,0 +1,9 @@
+<div class="m-4 p-3 list">
+    <h3 class="text-center">Users</h3>
+    <ul class="text-center">
+        <li class="pt-3" *ngFor="let user of users">
+            <app-user-single [user]="user" (deletedUser)="deleteUser($event)" (selectedUser)="selectedUser.emit($event)" ></app-user-single>
+        </li>
+    </ul>
+</div>  
+

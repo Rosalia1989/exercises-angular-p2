@@ -1,0 +1,6 @@
+.container {
+    background: rgb(219, 179, 179);
+    border: 1px solid red;
+    height: 100vh;
+    width: 48vw;
+}

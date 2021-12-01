@@ -1,0 +1,5 @@
+<div class="d-flex justify-content-center">
+<div class="m-2 d-flex justify-content-around container">
+    <app-user-list [users]="users" (selectedUser)="showDetails($event)" ></app-user-list>
+    <app-user-detail *ngIf="show" [user]="details" (close)="closeDetails()"></app-user-detail>
+</div>

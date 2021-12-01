@@ -1,0 +1,10 @@
+.list {
+    background-color: rgb(178, 224, 230);
+    border: 1px solid blue;
+    height: 90vh;
+    width: 35vw;
+}
+
+li {
+    list-style-type: none;
+}
