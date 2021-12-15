@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CounterService } from 'src/app/shared/counter.service';
-import { getJSDocReturnTag } from 'typescript';
 
 @Component({
   selector: 'app-edit-counter',
@@ -8,20 +7,18 @@ import { getJSDocReturnTag } from 'typescript';
   styleUrls: ['./edit-counter.component.css']
 })
 export class EditCounterComponent implements OnInit {
-  valueDefault!:number;
+  value:number=1;
 
   constructor(private counterService:CounterService) { }
 
   ngOnInit() {
-    return this.valueDefault=this.counterService.default;
   }
 
-  add() {
-   return this.counterService.addCounter(this.valueDefault);
+  add(value:number) {
+    return this.counterService.addCounter(value);
   }
 
-  sub() {
-    return this.counterService.subCounter(this.valueDefault);
+  sub(value:number) {
+    return this.counterService.subCounter(value);
   }
-
 }
