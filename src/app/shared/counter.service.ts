@@ -1,29 +1,27 @@
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CounterService {
-  private counter:number = 0;
-  counterSubject = new BehaviorSubject<number>(this.counter);
+
+  private counter : number = 0;
+  counterSubject = new BehaviorSubject<number>(0); // chiedere perché ?!
 
   constructor() { }
 
-  getCounter():Observable<number>{
-  return this.counterSubject.asObservable();
+  getCounter() {
+    return this.counterSubject.asObservable();
   }
 
-  addCounter(value:number) {
-    this.counterSubject.next(this.counter+=value);
-    return this.counterSubject.asObservable;
+  addCounter (value: number = 1) : void {
+    this.counterSubject.next(this.counter += value);
   }
 
-  subCounter(value:number) {
-    if(this.counter < value) {
-      return alert("You cannot enter a negative number");
-    } else {
-      return this.counterSubject.next(this.counter-=value);      
-    } 
+  subCounter (value: number = 1) : any {
+    if (this.counter < 1) {
+      this.counterSubject.error(alert('Error'));
+      } else this.counterSubject.next(this.counter-= value);
   }
 }
