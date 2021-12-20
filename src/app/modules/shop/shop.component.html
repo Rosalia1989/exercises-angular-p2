@@ -1,0 +1,32 @@
+<main class="text-center">
+
+    <h1>Beer shop</h1>
+
+    <section class="m-5">
+        <form #form="ngForm" class="d-flex flex-column">
+            <div>
+                <select class="form-select m-3 p-2" name="beersByName" id="beersByName" required [(ngModel)]="name">
+                    <option value="selectBeerByName" selected>Select a beer</option>
+                    <option value="{{ beer.name }}" *ngFor="let beer of beers">{{ beer.name }}</option>
+                </select>
+
+                <select class="form-select p-2" name="beersSize" id="beersSize" required [(ngModel)]="type">
+                    <option value="selectSize" selected>Select size</option>
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                </select>
+            </div>
+
+            <button class="btn btn-primary" (click)="selectBeer(name!, type!)">Search</button>
+
+        </form>
+    </section>
+
+    <section *ngIf="selectedBeer" class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{selectedBeer?.name}}</h5>
+            <p class="card-text">{{selectedBeer?.type}}</p>
+            <p class="card-text">{{selectedBeer?.price | currency: "EUR"}}</p>
+        </div>
+    </section>
+</main>

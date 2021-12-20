@@ -19,9 +19,17 @@ export class BeersService {
     return this.beersSubject.asObservable();
   }
 
+  
+
   getBeerById(id: number): Observable<Beer | undefined> {
     return this.beersSubject.pipe(
       map((response: Beer[]) => response.find((beer: Beer) => beer.id === id))
+    )
+  }
+  
+  selectBeer(name: string, type: string) : Observable<Beer | undefined> {
+    return this.beersSubject.pipe(
+      map((response : Beer[]) => response.find((beer: Beer) => beer.name === name && beer.type === type))
     )
   }
 
