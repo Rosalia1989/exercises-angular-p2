@@ -12,8 +12,15 @@ export class CovidService {
   getTotalNumberOfProperties() {
     return this.http.get<any>('https://api.covid19api.com/')
     .pipe(
-      map(response =>)
-    )
+      map(response => Object.keys(response).length)
+    );
+  }
+
+  getProperties() {
+    return this.http.get<any>('https://api.covid19api.com/')
+    .pipe(
+      map(response => Object.keys(response))
+    );
   }
 
 
