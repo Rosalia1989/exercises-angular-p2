@@ -5,10 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { CovidComponent } from './modules/components/covid/covid.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CovidComponent
   ],
   imports: [
     BrowserModule,
